@@ -45,12 +45,12 @@
 ## 怎麼讓使用者看到網站
 
 - **草稿預覽**：使用者說「給我看網站」、或功能驗收通過時：把 `index.html` 用成品頁（Artifact）發佈成預覽頁，給使用者連結。第一次發佈後，之後都更新同一個網址。
-- **正式上線**：合併到 main 之後，網站會由網站代管（GitHub Pages）自動更新到 `https://<GitHub 帳號>.github.io/<repo 名稱>/`。使用者問「正式網址」時給這個；還沒開過 Pages，就教他到 repo 的 **Settings → Pages**，Source 選 **Deploy from a branch**，分支選 **main**、資料夾選 **/(root)**，按 **Save**。
-- repo 是公開的，正式網址任何人都打得開，所以網站只能放假資料。
+- 這門課**不教上線（deploy）**：預覽一律用成品頁（Artifact）。使用者問怎麼放上正式網站，就說這由講師或公司處理，不要教他設定 GitHub Pages、Cloudflare 或任何部署。
+- 網站只放假資料。
 
 ## 收工
 
-使用者說「收工」或「存檔」時：把改動存成一個提交（commit）並推上目前的分支，然後用三句話教他：按畫面上的 **Create PR**（開合併請求）；在 GitHub 的 PR 頁面直接按 **Merge pull request → Confirm merge**（GitHub 不做檢查，驗收在對話裡已經跑過）。合併後正式網址會更新，通常 1 到 3 分鐘，因為瀏覽器和 GitHub 有快取，最久可能要 10 分鐘；看到舊畫面就強制重新整理（Windows 按 Ctrl+Shift+R，Mac 按 Cmd+Shift+R），或在網址後面加 `?v=2`，下一堂開新對話也看得到今天的成果。
+使用者說「收工」或「存檔」時：把改動存成一個提交（commit）並推上目前的分支，然後用三句話教他：按畫面上的 **Create PR**（開合併請求）；在 GitHub 的 PR 頁面直接按 **Merge pull request → Confirm merge**（GitHub 不做檢查，驗收在對話裡已經跑過）。合併後，下一堂開新對話也看得到今天的成果。
 
 ## 溝通
 
