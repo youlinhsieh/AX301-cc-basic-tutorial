@@ -24,11 +24,10 @@
 | `docs/sdd/` | 施工單 | 每個功能的規格（規格驅動開發，Spec-Driven Development，SDD） |
 | `docs/adr/` | 會議決議 | 重要決定與理由（架構決策紀錄，Architecture Decision Record，ADR） |
 | `docs/features/` | 驗收考卷 | Gherkin 情境（外部工具產生，放進來就自動驗收，見裡面的 README） |
-| `.github/workflows/` | 品管線 | 每次開合併請求（PR），GitHub 自動重跑驗收，通過才亮綠勾（持續整合，CI） |
 | `index.html` | 你的網站 | 目前是空的 |
 
 ## 怎麼看到網站
 
 - **草稿**：做完一個功能，跟 Claude 說「**給我看網站**」，它會發佈一個只有你看得到的預覽網址（成品頁，Artifact），電腦和手機都能打開。
-- **正式版**：說「**收工**」，照指示開合併請求（Pull Request）、等綠勾、合併（Merge）。正式網址 `https://你的帳號.github.io/repo名稱/` 通常 1 到 3 分鐘會更新，最久約 10 分鐘。看到舊畫面就強制重新整理（Ctrl+Shift+R／Cmd+Shift+R），或在網址後面加 `?v=2`。
+- **正式版**：說「**收工**」，照指示開合併請求（Pull Request）、合併（Merge）。驗收已經在對話裡跑過了，GitHub 這邊不再檢查。正式網址 `https://你的帳號.github.io/repo名稱/` 通常 1 到 3 分鐘會更新，最久約 10 分鐘。看到舊畫面就強制重新整理（Ctrl+Shift+R／Cmd+Shift+R），或在網址後面加 `?v=2`。
 - 你的程式碼和每一次改動的紀錄，都在你自己的 GitHub repo 裡。repo 是公開的，網站只放假資料。

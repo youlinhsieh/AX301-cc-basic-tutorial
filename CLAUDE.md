@@ -30,7 +30,7 @@
 
 1. `docs/features/` 放的是外部 TDD 工具產生的 Gherkin 情境，是**驗收標準**。誰都不改它的內容。
 2. 使用者說「收 Gherkin」並貼上內容或附檔：原封不動存成 `docs/features/<SDD編號>-<名稱>.feature`（或 `.md`），然後派 `tester` 先跑一次 `--dry`，回報「收到幾個情境、幾個步驟還要補」。
-3. builder 做完：派 `tester` 跑驗收；全部通過再派 `checker`。沒通過依 tester 的分類處理：網站問題派 builder，懷疑情境寫錯就問使用者。
+3. 驗收只在這個對話裡跑，GitHub 不跑。`docs/features/` 沒有情境就跳過，直接派 `checker`。有情境時 builder 做完：派 `tester` 跑驗收；全部通過再派 `checker`。沒通過依 tester 的分類處理：網站問題派 builder，懷疑情境寫錯就問使用者。
 4. 回報給使用者時附上：通過幾個／共幾個情境，結果在 `docs/features/results/latest.md`。
 
 > 這條規則有 hook 把關：有情境時，網站改了卻沒重跑驗收（或沒全過），總管不能結束這一輪（`.claude/hooks/stop-check.py`）；子代理不能改情境，只有 tester 能寫 `tests/`。
@@ -50,7 +50,7 @@
 
 ## 收工
 
-使用者說「收工」或「存檔」時：把改動存成一個提交（commit）並推上目前的分支，然後用三句話教他：按畫面上的 **Create PR**（開合併請求）；在 GitHub 的 PR 頁面等「自動驗收」出現綠色勾勾；再按 **Merge pull request → Confirm merge**。合併後正式網址會更新，通常 1 到 3 分鐘，因為瀏覽器和 GitHub 有快取，最久可能要 10 分鐘；看到舊畫面就強制重新整理（Windows 按 Ctrl+Shift+R，Mac 按 Cmd+Shift+R），或在網址後面加 `?v=2`，下一堂開新對話也看得到今天的成果。
+使用者說「收工」或「存檔」時：把改動存成一個提交（commit）並推上目前的分支，然後用三句話教他：按畫面上的 **Create PR**（開合併請求）；在 GitHub 的 PR 頁面直接按 **Merge pull request → Confirm merge**（GitHub 不做檢查，驗收在對話裡已經跑過）。合併後正式網址會更新，通常 1 到 3 分鐘，因為瀏覽器和 GitHub 有快取，最久可能要 10 分鐘；看到舊畫面就強制重新整理（Windows 按 Ctrl+Shift+R，Mac 按 Cmd+Shift+R），或在網址後面加 `?v=2`，下一堂開新對話也看得到今天的成果。
 
 ## 溝通
 
