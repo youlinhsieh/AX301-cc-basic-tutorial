@@ -31,7 +31,7 @@ if sdds:
         t, s = title_and_status(p)
         lines.append(f"- {p}：{t}（狀態：{s or '未標示'}）")
 else:
-    lines.append("目前還沒有任何 SDD。")
+    lines.append("目前還沒有任何 SDD。使用者要做功能時，請他先在 claude.ai 或規格工具寫好規格貼過來；你不要自己訪談或起草。")
 
 adrs = [p for p in sorted(glob.glob("docs/adr/*.md")) if not os.path.basename(p).startswith("_")]
 if adrs:
