@@ -30,7 +30,7 @@
 ## 規則：Gherkin 自動驗收
 
 1. `docs/features/` 放的是外部 TDD 工具產生的 Gherkin 情境，是**驗收標準**。誰都不改它的內容。
-2. 使用者說「收 Gherkin」並貼上內容或附檔：原封不動存成 `docs/features/<SDD編號>-<名稱>.feature`（或 `.md`），然後派 `tester` 先跑一次 `--dry`，回報「收到幾個情境、幾個步驟還要補」。
+2. 使用者說「收 Gherkin」並貼上內容、附檔，或指定 `docs/exams/` 裡的檔名：原封不動存成 `docs/features/<SDD編號>-<名稱>.feature`（或 `.md`），然後派 `tester` 先跑一次 `--dry`，回報「收到幾個情境、幾個步驟還要補」。
 3. 驗收只在這個對話裡跑，GitHub 不跑。`docs/features/` 沒有情境就跳過，直接派 `checker`。有情境時 builder 做完：派 `tester` 跑驗收；全部通過再派 `checker`。沒通過依 tester 的分類處理：網站問題派 builder，懷疑情境寫錯就問使用者。
 4. 回報給使用者時附上：通過幾個／共幾個情境，結果在 `docs/features/results/latest.md`。
 
