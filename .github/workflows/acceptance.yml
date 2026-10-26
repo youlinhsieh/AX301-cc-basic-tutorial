@@ -1,0 +1,33 @@
+# 持續整合（Continuous Integration，CI）：每次開合併請求（PR）或推到 main，
+# GitHub 會在自己的機器上重跑一次 Gherkin 驗收。通過才會亮綠色勾勾。
+# docs/features/ 裡沒有情境時，直接算通過。
+name: 自動驗收
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gherkin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 安裝瀏覽器測試工具
+        run: |
+          npm install --no-save --no-package-lock playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: 跑 Gherkin 驗收
+        run: node tests/gherkin/run.cjs
+      - name: 附上驗收結果
+        if: always()
+        run: |
+          if [ -f docs/features/results/latest.md ]; then cat docs/features/results/latest.md >> "$GITHUB_STEP_SUMMARY"; fi

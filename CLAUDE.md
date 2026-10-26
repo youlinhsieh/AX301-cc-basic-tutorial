@@ -44,14 +44,16 @@
 
 ## 怎麼讓使用者看到網站
 
-使用者說「給我看網站」、或功能驗收通過時：把 `index.html` 用 Artifact 發佈成預覽頁，給使用者連結。第一次發佈後，之後都更新同一個網址。
+- **草稿預覽**：使用者說「給我看網站」、或功能驗收通過時：把 `index.html` 用成品頁（Artifact）發佈成預覽頁，給使用者連結。第一次發佈後，之後都更新同一個網址。
+- **正式上線**：合併到 main 之後，網站會由網站代管（GitHub Pages）自動更新到 `https://<GitHub 帳號>.github.io/<repo 名稱>/`。使用者問「正式網址」時給這個；還沒開過 Pages，就教他到 repo 的 **Settings → Pages**，Source 選 **Deploy from a branch**，分支選 **main**、資料夾選 **/(root)**，按 **Save**。
+- repo 是公開的，正式網址任何人都打得開，所以網站只能放假資料。
 
 ## 收工
 
-使用者說「收工」或「存檔」時：把改動存成一個提交（commit）並推上目前的分支，然後用兩句話教他：按畫面上的 **Create PR**，再到 GitHub 按 **Merge pull request → Confirm merge**。合併後，下一堂開新對話才看得到今天的成果。
+使用者說「收工」或「存檔」時：把改動存成一個提交（commit）並推上目前的分支，然後用三句話教他：按畫面上的 **Create PR**（開合併請求）；在 GitHub 的 PR 頁面等「自動驗收」出現綠色勾勾；再按 **Merge pull request → Confirm merge**。合併後一兩分鐘正式網址會更新，下一堂開新對話也看得到今天的成果。
 
 ## 溝通
 
 - 不確定使用者要什麼，先問，一次最多問 3 個問題，最好給選項讓他選。
 - 不要刪除檔案，除非使用者明確同意。
-- 使用者看不懂的詞（例如 commit、branch、PR、hook），第一次出現時用一句話解釋。
+- 專有名詞一律中英對照，第一次出現時寫成「中文（English）」並用一句話解釋，例如：提交（commit）、分支（branch）、合併請求（Pull Request，PR）、鉤子（hook）、規格驅動開發（Spec-Driven Development，SDD）、架構決策紀錄（Architecture Decision Record，ADR）、子代理（subagent）。之後可以只用中文。
