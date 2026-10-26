@@ -24,6 +24,7 @@
 | `docs/adr/` | 會議決議 | 重要決定與理由（架構決策紀錄，Architecture Decision Record，ADR） |
 | `docs/features/` | 驗收考卷 | Gherkin 情境（外部工具產生，放進來就自動驗收，見裡面的 README） |
 | `index.html` | 你的網站 | 目前是空的 |
+| `wrangler.jsonc`、`package.json`、`.assetsignore` | 上線工具 | 課後選用：照 `docs/deploy.md` 設定一次，之後說「上線」就放到正式網址 |
 
 ## 怎麼看到網站、怎麼存檔
 
